@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    username: Alex
+    password: Alex
+    url: jdbc:postgresql://localhost:5432/auto
+    hikari:
+      schema: shop
+
+  flyway:
+    baseline-on-migrate: true
+    schemas: shop
+server:
+  port: 8081
