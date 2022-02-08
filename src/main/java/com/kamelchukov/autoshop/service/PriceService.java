@@ -41,9 +41,13 @@ public class PriceService {
 
     public void delete(Long id) {
         if (repository.existsById(id)) {
-        repository.deleteById(id);
+            repository.deleteById(id);
         } else {
             throw new EntityNotFoundException("Price with id = " + id + " not found");
         }
+    }
+
+    public List<Price> findPricesByDealershipId(Long id) {
+        return repository.findPricesByDealershipId(id);
     }
 }
