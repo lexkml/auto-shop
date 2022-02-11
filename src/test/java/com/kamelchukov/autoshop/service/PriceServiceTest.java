@@ -29,7 +29,7 @@ class PriceServiceTest {
     @Mock
     private PriceRepository priceRepository;
 
-    public static final Price price = Price.builder()
+    public static final Price PRICE = Price.builder()
             .id(1L)
             .dealershipId(2L)
             .carId(5L)
@@ -39,28 +39,28 @@ class PriceServiceTest {
     @Test
     void createTest_successfulCase() {
         var request = PriceCreateRequest.builder()
-                .dealershipId(price.getDealershipId())
-                .carId(price.getCarId())
-                .price(price.getPrice())
+                .dealershipId(PRICE.getDealershipId())
+                .carId(PRICE.getCarId())
+                .price(PRICE.getPrice())
                 .build();
 
         var resultPrice = PriceTransformer.fromDto(request);
-        resultPrice.setId(price.getId());
+        resultPrice.setId(PRICE.getId());
 
-        when(priceRepository.save(any(Price.class))).thenReturn(price);
+        when(priceRepository.save(any(Price.class))).thenReturn(PRICE);
 
         priceService.create(request);
 
-        assertEquals(PriceServiceTest.price, resultPrice);
+        assertEquals(PriceServiceTest.PRICE, resultPrice);
     }
 
     @Test
     void findByIdTest_successfulCase() {
-        when(priceRepository.findById(any())).thenReturn(Optional.of(price));
+        when(priceRepository.findById(any())).thenReturn(Optional.of(PRICE));
 
         var resultPrice = priceService.findById(anyLong());
 
-        assertEquals(price, resultPrice);
+        assertEquals(PRICE, resultPrice);
     }
 
     @Test
@@ -72,7 +72,7 @@ class PriceServiceTest {
 
     @Test
     void findAllTest_successfulCase() {
-        var prices = List.of(PriceServiceTest.price);
+        var prices = List.of(PriceServiceTest.PRICE);
         when(priceRepository.findAll()).thenReturn(prices);
 
         var resultPrices = priceService.findAll();
@@ -82,12 +82,12 @@ class PriceServiceTest {
 
     @Test
     void updateTest_successfulCase() {
-        when(priceRepository.findById(anyLong())).thenReturn(Optional.of(price));
-        when(priceRepository.save(any(Price.class))).thenReturn(price);
+        when(priceRepository.findById(anyLong())).thenReturn(Optional.of(PRICE));
+        when(priceRepository.save(any(Price.class))).thenReturn(PRICE);
 
-        var result = priceService.update(price.getId(), 1000);
+        var result = priceService.update(PRICE.getId(), 1000);
 
-        assertEquals(price, result);
+        assertEquals(PRICE, result);
     }
 
     @Test

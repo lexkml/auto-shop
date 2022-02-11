@@ -2,7 +2,7 @@ package com.kamelchukov.autoshop.controller;
 
 import com.kamelchukov.autoshop.model.dto.catalog.CatalogResponse;
 import com.kamelchukov.autoshop.service.CatalogService;
-import com.kamelchukov.autoshop.transformer.CatalogTransformer;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,23 +10,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static java.util.stream.Collectors.toList;
-
 @RestController
 @AllArgsConstructor
 public class CatalogController {
 
     private CatalogService service;
 
-    @GetMapping("/catalog/{id}")
-    CatalogResponse findCatalogById(@PathVariable Long id) {
-        return CatalogTransformer.toCatalogResponse(service.findCatalogById(id));
+    @GetMapping("/catalogs/{id}")
+    @Operation(summary = "Show catalog of car by dealership id")
+    CatalogResponse showCatalogByDealershipId(@PathVariable Long id) {
+        return service.showCatalogByDealershipId(id);
     }
 
     @GetMapping("/catalogs")
-    List<CatalogResponse> findAllCatalogs() {
-        return service.findAllCatalogs().stream()
-                .map(CatalogTransformer::toCatalogResponse)
-                .collect(toList());
+    @Operation(summary = "Show all catalogs of all dealerships")
+    List<CatalogResponse> showAllCatalogs() {
+        return service.showAllCatalogsOfAllDealerships();
     }
 }

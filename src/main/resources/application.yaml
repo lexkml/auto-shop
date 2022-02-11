@@ -11,3 +11,8 @@ spring:
     schemas: shop
 server:
   port: 8081
+
+autoCatalogApi:
+    feign:
+      name: autoCatalogApi
+      url: http://localhost:8080

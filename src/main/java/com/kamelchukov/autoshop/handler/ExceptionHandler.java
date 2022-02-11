@@ -15,12 +15,12 @@ public class ExceptionHandler {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<ExceptionResponse> handleException(EntityNotFoundException ex, ServletWebRequest request) {
 
-        return returnExceptionResponse(ex, request, HttpStatus.NOT_FOUND);
+        return returnExceptionResponse(ex, request);
     }
 
     private ResponseEntity<ExceptionResponse> returnExceptionResponse(
-            EntityNotFoundException ex, ServletWebRequest request, HttpStatus status) {
-        return new ResponseEntity<>(new ExceptionResponse(ex.getMessage(), request.getRequest().getRequestURI()), status);
+            EntityNotFoundException ex, ServletWebRequest request) {
+        return new ResponseEntity<>(new ExceptionResponse(ex.getMessage(), request.getRequest().getRequestURI()), HttpStatus.NOT_FOUND);
     }
 
 }

@@ -30,7 +30,7 @@ class DealershipServiceTest {
     @Mock
     private DealershipRepository dealershipRepository;
 
-    public static final Dealership dealerShip = Dealership.builder()
+    public static final Dealership DEALERSHIP = Dealership.builder()
             .id(1L)
             .name("Lime")
             .city("Voronezh")
@@ -39,27 +39,27 @@ class DealershipServiceTest {
     @Test
     void createTest_successfulCase() {
         var request = DealershipCreateRequest.builder()
-                .name(dealerShip.getName())
-                .city(dealerShip.getCity())
+                .name(DEALERSHIP.getName())
+                .city(DEALERSHIP.getCity())
                 .build();
 
         var resultDealership = DealershipTransformer.fromDto(request);
-        resultDealership.setId(dealerShip.getId());
+        resultDealership.setId(DEALERSHIP.getId());
 
-        when(dealershipRepository.save(any(Dealership.class))).thenReturn(dealerShip);
+        when(dealershipRepository.save(any(Dealership.class))).thenReturn(DEALERSHIP);
 
         dealershipService.create(request);
 
-        assertEquals(dealerShip, resultDealership);
+        assertEquals(DEALERSHIP, resultDealership);
     }
 
     @Test
     void findByIdTest_successfulCase() {
-        when(dealershipRepository.findById(anyLong())).thenReturn(Optional.of(dealerShip));
+        when(dealershipRepository.findById(anyLong())).thenReturn(Optional.of(DEALERSHIP));
 
         var resultDealership = dealershipService.findById(anyLong());
 
-        assertEquals(dealerShip, resultDealership);
+        assertEquals(DEALERSHIP, resultDealership);
     }
 
     @Test
@@ -71,7 +71,7 @@ class DealershipServiceTest {
 
     @Test
     void findAllTest_successfulCase() {
-        var dealerships = List.of(DealershipServiceTest.dealerShip);
+        var dealerships = List.of(DealershipServiceTest.DEALERSHIP);
         when(dealershipRepository.findAll()).thenReturn(dealerships);
 
         var resultDealerships = dealershipService.findAll();
@@ -81,12 +81,12 @@ class DealershipServiceTest {
 
     @Test
     void updateTest_successfulCase() {
-        when(dealershipRepository.findById(anyLong())).thenReturn(Optional.of(dealerShip));
-        when(dealershipRepository.save(any(Dealership.class))).thenReturn(dealerShip);
+        when(dealershipRepository.findById(anyLong())).thenReturn(Optional.of(DEALERSHIP));
+        when(dealershipRepository.save(any(Dealership.class))).thenReturn(DEALERSHIP);
 
-        var result = dealershipService.update(dealerShip.getId(), "dummy", "dummy");
+        var result = dealershipService.update(DEALERSHIP.getId(), "dummy", "dummy");
 
-        assertEquals(dealerShip, result);
+        assertEquals(DEALERSHIP, result);
     }
 
     @Test

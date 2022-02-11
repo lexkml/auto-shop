@@ -9,7 +9,6 @@ import org.springframework.data.relational.core.mapping.Table;
 @Builder
 @Table("price")
 public class Price {
-
     @Id
     private Long id;
 

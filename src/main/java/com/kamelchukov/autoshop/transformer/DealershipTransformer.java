@@ -20,6 +20,7 @@ public final class DealershipTransformer {
                 .id(dealership.getId())
                 .name(dealership.getName())
                 .city(dealership.getCity())
+                .prices(dealership.getPrices())
                 .build();
     }
 }
