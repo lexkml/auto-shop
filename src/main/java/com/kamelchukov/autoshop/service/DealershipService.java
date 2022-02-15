@@ -1,10 +1,10 @@
 package com.kamelchukov.autoshop.service;
 
-import com.kamelchukov.autoshop.exception.EntityNotFoundException;
 import com.kamelchukov.autoshop.model.Dealership;
 import com.kamelchukov.autoshop.model.dto.dealership.request.DealershipCreateRequest;
 import com.kamelchukov.autoshop.repository.DealershipRepository;
 import com.kamelchukov.autoshop.transformer.DealershipTransformer;
+import exception.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

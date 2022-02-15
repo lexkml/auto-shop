@@ -1,7 +1,7 @@
 package com.kamelchukov.autoshop.handler;
 
-import com.kamelchukov.autoshop.exception.EntityNotFoundException;
-import com.kamelchukov.autoshop.exception.response.ExceptionResponse;
+import exception.EntityNotFoundException;
+import exception.response.ExceptionResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

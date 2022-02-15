@@ -1,10 +1,10 @@
 package com.kamelchukov.autoshop.service;
 
-import com.kamelchukov.autoshop.exception.EntityNotFoundException;
 import com.kamelchukov.autoshop.model.Price;
 import com.kamelchukov.autoshop.model.dto.price.request.PriceCreateRequest;
 import com.kamelchukov.autoshop.repository.PriceRepository;
 import com.kamelchukov.autoshop.transformer.PriceTransformer;
+import exception.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

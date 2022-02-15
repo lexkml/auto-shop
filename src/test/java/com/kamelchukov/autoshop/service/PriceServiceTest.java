@@ -1,10 +1,10 @@
 package com.kamelchukov.autoshop.service;
 
-import com.kamelchukov.autoshop.exception.EntityNotFoundException;
 import com.kamelchukov.autoshop.model.Price;
 import com.kamelchukov.autoshop.model.dto.price.request.PriceCreateRequest;
 import com.kamelchukov.autoshop.repository.PriceRepository;
 import com.kamelchukov.autoshop.transformer.PriceTransformer;
+import exception.EntityNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
