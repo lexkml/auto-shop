@@ -1,9 +1,9 @@
 package com.kamelchukov.autoshop.service;
 
-import com.kamelchukov.autoshop.api.AutoCatalogApi;
+import com.common.api.AutoCatalogApi;
+import com.common.model.dto.carDto.response.FullDataOfCarResponse;
 import com.kamelchukov.autoshop.model.Dealership;
 import com.kamelchukov.autoshop.model.Price;
-import com.kamelchukov.autoshop.model.dto.car.FullDataOfCarResponse;
 import com.kamelchukov.autoshop.model.dto.catalog.CatalogResponse;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,6 +1,6 @@
 package com.kamelchukov.autoshop.model.dto.catalog;
 
-import com.kamelchukov.autoshop.model.dto.car.FullDataOfCarResponse;
+import com.common.model.dto.carDto.response.FullDataOfCarResponse;
 import lombok.Builder;
 import lombok.Data;
 

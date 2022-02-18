@@ -1,6 +1,6 @@
 package com.kamelchukov.autoshop.service;
 
-import com.kamelchukov.autoshop.api.AutoCatalogApi;
+import com.common.api.AutoCatalogApi;
 import com.kamelchukov.autoshop.model.Dealership;
 import com.kamelchukov.autoshop.model.Price;
 import com.kamelchukov.autoshop.model.dto.catalog.CatalogResponse;
@@ -23,7 +23,7 @@ public class CatalogService {
         var dealership = dealershipService.findById(id);
         var carsIds = dealership.getPrices().stream()
                 .map(Price::getCarId)
-                .collect(toList());
+                .toList();
 
         var cars = api.findFullDataAllOfCars().stream()
                 .filter(car -> carsIds.contains(car.getId()))
