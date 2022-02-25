@@ -28,7 +28,7 @@ dependencies {
     implementation 'org.springdoc:springdoc-openapi-ui:1.6.6'
     implementation 'io.swagger.core.v3:swagger-annotations:2.1.13'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.0'
-    implementation files ('/Users/alexandr/IdeaProjects/red-collar/common-lib/build/libs/common-lib-1.0-SNAPSHOT-plain.jar')
+    implementation files ('/Users/lexkml/IdeaProjects/red-collar/common-lib/build/libs/common-lib-1.0-SNAPSHOT-plain.jar')
 }
 
 test {

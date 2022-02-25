@@ -1,9 +1,9 @@
 package com.kamelchukov.autoshop.service;
 
-import com.common.api.AutoCatalogApi;
 import com.kamelchukov.autoshop.model.Dealership;
 import com.kamelchukov.autoshop.model.Price;
 import com.kamelchukov.autoshop.model.dto.catalog.CatalogResponse;
+import com.kamelchukov.common.api.AutoCatalogApi;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

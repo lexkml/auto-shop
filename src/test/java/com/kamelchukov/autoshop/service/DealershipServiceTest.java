@@ -4,7 +4,7 @@ import com.kamelchukov.autoshop.model.Dealership;
 import com.kamelchukov.autoshop.model.dto.dealership.request.DealershipCreateRequest;
 import com.kamelchukov.autoshop.repository.DealershipRepository;
 import com.kamelchukov.autoshop.transformer.DealershipTransformer;
-import exception.EntityNotFoundException;
+import com.kamelchukov.common.exception.EntityNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
