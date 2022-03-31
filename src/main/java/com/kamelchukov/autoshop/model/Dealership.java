@@ -8,9 +8,9 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Set;
 
+@Table("dealership")
 @Data
 @Builder
-@Table("dealership")
 public class Dealership {
     @Id
     private Long id;

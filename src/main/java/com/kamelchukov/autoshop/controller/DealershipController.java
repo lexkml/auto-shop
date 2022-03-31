@@ -44,8 +44,8 @@ public class DealershipController {
     }
 
     @DeleteMapping("/dealerships/{id}")
-    @Operation(summary = "Delete dealership")
-    public void delete(@PathVariable Long id) {
-        service.delete(id);
+    @Operation(summary = "Remove dealership")
+    public void remove(@PathVariable Long id) {
+        service.remove(id);
     }
 }

@@ -14,6 +14,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class PriceService {
+
     private PriceRepository repository;
 
     public Price create(PriceCreateRequest request) {
@@ -39,15 +40,11 @@ public class PriceService {
         return repository.save(price);
     }
 
-    public void delete(Long id) {
+    public void remove(Long id) {
         if (repository.existsById(id)) {
             repository.deleteById(id);
         } else {
             throw new EntityNotFoundException("Price with id = " + id + " not found");
         }
-    }
-
-    public List<Price> findPricesByDealershipId(Long id) {
-        return repository.findPricesByDealershipId(id);
     }
 }

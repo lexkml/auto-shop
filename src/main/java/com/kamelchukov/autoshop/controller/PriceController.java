@@ -44,8 +44,8 @@ public class PriceController {
     }
 
     @DeleteMapping("/prices/{id}")
-    @Operation(summary = "Delete price")
-    public void delete(@PathVariable Long id) {
-        service.delete(id);
+    @Operation(summary = "Remove price")
+    public void remove(@PathVariable Long id) {
+        service.remove(id);
     }
 }

@@ -1,19 +1,37 @@
+server:
+  port: 8081
+
 spring:
   datasource:
     username: Alex
     password: Alex
-    url: jdbc:postgresql://localhost:5432/auto
+    url: jdbc:postgresql://localhost:5434/auto
     hikari:
       schema: shop
+  main:
+    allow-circular-references: true
+  rabbitmq:
+    host: localhost
+    port: 15672
+    username: admin
+    password: admin
 
-  flyway:
-    baseline-on-migrate: true
-    schemas: shop
-
-server:
-  port: 8081
+flyway:
+  schemas: shop
+  baseline-on-migrate: true
 
 autocatalogapi:
   feign:
     name: autoCatalogApi
     url: http://localhost:8080
+
+keycloak:
+  auth-server-url: http://localhost:8484/auth
+  realm: catalog-realm
+  resource: shop
+  public-client: true
+
+keycloak-internal-admin:
+  username: admin
+  password: admin
+

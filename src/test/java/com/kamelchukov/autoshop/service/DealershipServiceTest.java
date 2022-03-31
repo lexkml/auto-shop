@@ -94,7 +94,7 @@ class DealershipServiceTest {
         when(dealershipRepository.existsById(anyLong())).thenReturn(true);
         doNothing().when(dealershipRepository).deleteById(anyLong());
 
-        dealershipService.delete(anyLong());
+        dealershipService.remove(anyLong());
 
         verify(dealershipRepository).deleteById(anyLong());
     }
@@ -103,6 +103,6 @@ class DealershipServiceTest {
     void deleteTest_ifDealershipNotFound() {
         when(dealershipRepository.existsById(anyLong())).thenReturn(false);
 
-        assertThrows(EntityNotFoundException.class, () ->dealershipService.delete(anyLong()));
+        assertThrows(EntityNotFoundException.class, () ->dealershipService.remove(anyLong()));
     }
 }

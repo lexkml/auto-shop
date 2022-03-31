@@ -95,7 +95,7 @@ class PriceServiceTest {
         when(priceRepository.existsById(anyLong())).thenReturn(true);
         doNothing().when(priceRepository).deleteById(anyLong());
 
-        priceService.delete(anyLong());
+        priceService.remove(anyLong());
 
         verify(priceRepository).deleteById(anyLong());
     }
@@ -104,6 +104,6 @@ class PriceServiceTest {
     void deleteTest_ifPriceNotFound() {
         when(priceRepository.existsById(anyLong())).thenReturn(false);
 
-        assertThrows(EntityNotFoundException.class, () -> priceService.delete(anyLong()));
+        assertThrows(EntityNotFoundException.class, () -> priceService.remove(anyLong()));
     }
 }

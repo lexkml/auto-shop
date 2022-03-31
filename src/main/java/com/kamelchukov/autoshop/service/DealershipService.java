@@ -43,7 +43,7 @@ public class DealershipService {
         return repository.save(dealership);
     }
 
-    public void delete(Long id) {
+    public void remove(Long id) {
         if (repository.existsById(id)) {
             repository.deleteById(id);
         } else {
